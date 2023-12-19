@@ -23,10 +23,11 @@ class Bundle:
         return str(round(self.value, 2))
 
     def get_value(self):
-        return self.value
+        return str(round(self.value, 2))
 
     def percentage_value(self):
-        return (self.value / self.price) * 100
+        percentage = (self.value / self.price) * 100
+        return str(round(percentage, 2))
 
 
 if __name__ == '__main__':
