@@ -11,7 +11,6 @@ class Bundle:
         self.credit = credit
         self.gold = gold
         self.value = 0
-        self.calculate_value()
 
     def calculate_value(self):
         if self.token > 0:
@@ -36,6 +35,7 @@ if __name__ == '__main__':
     input_numbers = [int(i) for i in input_list]
 
     bundle = Bundle(input_numbers[0], input_numbers[1], input_numbers[2], input_numbers[3])
+    bundle.calculate_value()
     print(f"Bundle is percentage:    {bundle.percentage_value()}%")
     print(f"Bundle is worth:    ${bundle.get_value()}")
 
