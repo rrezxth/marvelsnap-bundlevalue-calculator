@@ -4,31 +4,7 @@ CREDIT_VALUE = 175
 GOLD_VALUE = 140
 
 
-class PayMoneyBundle:
-    def __init__(self, price, token, credit, gold):
-        self.price = price
-        self.token = token
-        self.credit = credit
-        self.gold = gold
-        self.value = 0
-
-    def calculate_value(self):
-        if self.token > 0:
-            self.value += self.token / TOKEN_VALUE
-        if self.credit > 0:
-            self.value += self.credit / CREDIT_VALUE
-        if self.gold > 0:
-            self.value += self.gold / GOLD_VALUE
-
-    def get_value(self):
-        return str(round(self.value, 2))
-
-    def percentage_value(self):
-        percentage = (self.value / self.price) * 100
-        return str(round(percentage, 2))
-
-
-class PayGoldBundle:
+class BundleBase:
     def __init__(self, price, token, credit):
         self.price = price
         self.token = token
@@ -44,12 +20,29 @@ class PayGoldBundle:
     def get_value(self):
         return str(round(self.value, 2))
 
+
+class PayMoneyBundle(BundleBase):
+    def __init__(self, price, token, credit, gold):
+        super().__init__(price, token, credit)
+        self.gold = gold
+
+    def calculate_value(self):
+        super().calculate_value()
+        if self.gold > 0:
+            self.value += self.gold / GOLD_VALUE
+
+    def percentage_value(self):
+        percentage = (self.value / self.price) * 100
+        return str(round(percentage, 2))
+
+
+class PayGoldBundle(BundleBase):
+    def __init__(self, price, token, credit):
+        super().__init__(price, token, credit)
+
     def percentage_value(self):
         gold_value = self.price / GOLD_VALUE
-        token_value = self.token / TOKEN_VALUE
-        credit_value = self.credit / CREDIT_VALUE
-
-        currencies_value = token_value + credit_value
+        currencies_value = self.value
 
         percentage = (currencies_value / gold_value) * 100
         return str(round(percentage, 2))
