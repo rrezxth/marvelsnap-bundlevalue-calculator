@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     bundle = Bundle(input_numbers[0], input_numbers[1], input_numbers[2], input_numbers[3])
     bundle.calculate_value()
-    print(f"Bundle is percentage:    {bundle.percentage_value()}%")
+    print(f"Bundle value percentage:    {bundle.percentage_value()}%")
     print(f"Bundle is worth:    ${bundle.get_value()}")
 
 
