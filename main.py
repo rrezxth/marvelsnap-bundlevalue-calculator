@@ -1,7 +1,7 @@
 # CONSTANTS, value per $1
-TOKEN_VALUE = 100
-CREDIT_VALUE = 175
-GOLD_VALUE = 140
+TOKEN_VALUE = 42.85714
+CREDIT_VALUE = 75
+GOLD_VALUE = 60
 
 
 class BundleBase:
@@ -49,16 +49,31 @@ class PayGoldBundle(BundleBase):
 
 
 if __name__ == '__main__':
-    user_input = input("Enter values:\t")
-    input_list = user_input.split()
-    input_numbers = [int(i) for i in input_list]
 
-    # bundle = PayMoneyBundle(input_numbers[0], input_numbers[1], input_numbers[2], input_numbers[3])
-    # bundle.calculate_value()
-    # print(f"Bundle value percentage:    {bundle.percentage_value()}%")
-    # print(f"Bundle is worth:    ${bundle.get_value()}")
+    selection = input("Pay with:\t")
+    if selection == "d":
+        print("Format: [USD, TOKEN, CREDIT, GOLD]")
+        user_input = input("Enter values:\t")
+        input_list = user_input.split()
+        input_numbers = [int(i) for i in input_list]
 
-    bundle = PayGoldBundle(input_numbers[0], input_numbers[1], input_numbers[2])
-    bundle.calculate_value()
-    print(f"Bundle value percentage:    {bundle.percentage_value()}%")
-    print(f"Bundle is worth:    ${bundle.get_value()}")
+        bundle = PayMoneyBundle(input_numbers[0], input_numbers[1], input_numbers[2], input_numbers[3])
+        bundle.calculate_value()
+        print(f"Bundle value percentage:    {bundle.percentage_value()}%")
+        print(f"Bundle is worth:    ${bundle.get_value()}")
+    else:
+        print("Format: [GOLD, TOKEN, CREDIT]")
+        user_input = input("Enter values:\t")
+        input_list = user_input.split()
+        input_numbers = [int(i) for i in input_list]
+
+        bundle = PayGoldBundle(input_numbers[0], input_numbers[1], input_numbers[2])
+        bundle.calculate_value()
+        print(f"Bundle value percentage:    {bundle.percentage_value()}%")
+        print(f"Gold spent is worth:    ${str(round(input_numbers[0]/140, 2))}")
+        print(f"Bundle is worth:    ${bundle.get_value()}")
+
+
+
+
+
