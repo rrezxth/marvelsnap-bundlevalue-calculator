@@ -1,7 +1,7 @@
 # Marvel Snap Bundle Value Calculator
 
 * Simple calculator for Marvel Snap bundles.
-* Shows the bundle's value in dollars and the percentage value aswell.
+* Uses (1) card unit as the baseline for all currency values -- credits, tokens, gold, USD.
 
 Last update: SnapPacks Patch (April 29th, '25)
 
