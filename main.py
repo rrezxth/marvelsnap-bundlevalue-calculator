@@ -1,9 +1,9 @@
 class BundleBase:
     # Values per (1) card
     # Some of these values are approximations -- they are NOT end all be all
-    CREDITS_TO_CARD = 9752
+    CREDITS_TO_CARD = 9615  # ORIGINAL_VALUE 9950, but lowered due to FREE 200 Tokens from caches
     TOKENS_TO_CARD = 6000
-    GOLD_TO_CARD = 7792     # Assuming a 1.3 Gold to Token ratio
+    GOLD_TO_CARD = 7500     # Assuming a 1.25 Gold to Token ratio from Token Tuesday
     MONEY_TO_CARD = 92      # In USD; assuming 1 $Dollar to Gold ratio
 
     def __init__(self, cost, credit=0, token=0):
